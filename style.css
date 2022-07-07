@@ -1,0 +1,29 @@
+body {
+  background-color: #F9F9F9; 
+}
+
+header {
+  text-align: center;
+  color: #6883ba;
+  font-size: 30px;
+}
+
+p {
+  text-align: center;
+  color: darkolivegreen;   
+  font-size: 20px;
+  padding: 0px 20px;   
+}
+
+.btn {
+  background-color: #e072a4;
+  display: block;
+  margin: 0 auto;
+  padding: 5px 15px;
+  color: #F9F9F9;
+  font-size: 20px;
+  font-family: fantasy;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+}
