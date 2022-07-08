@@ -31,3 +31,11 @@ p {
   text-align: center;
   cursor: pointer;
 }
+
+.container {
+  align-content: center;    
+}
+
+.answerBtns {
+  align-content: center;   
+}
