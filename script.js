@@ -9,11 +9,11 @@ var buttonFour = document.querySelector('btn2');
 
 
 function beginQuiz() {
-// questionBox.textContent = "Where is the script tag placed on the HTML page?";
-//   buttonOne.textContent = A: "In the head tag",
-//   buttonTwo.textContent = B: "Before the closing body tag",  
-//   buttonThree.textContent = C: "After the closing html tag", 
-//   buttonFour.textContent = D: "inside of a div tag"     
+ questionBox.textContent = "Where is the script tag placed on the HTML page?";
+  buttonOne.textContent = "A In the head tag",
+  buttonTwo.textContent = "B Before the closing body tag",  
+  buttonThree.textContent = "C After the closing html tag", 
+  buttonFour.textContent = "D inside of a div tag"
 }; 
 
 // The timer is set and will stop when time is up or all questions are answered

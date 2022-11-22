@@ -1,9 +1,14 @@
-nav {
-  text-align: right;    
+#navBar {
+  display: flex;
+  justify-content: space-between;
 }
- 
+
 body {
   background-color: #F9F9F9; 
+}
+
+#copy {
+  text-align: center;
 }
 
 header {
@@ -32,10 +37,22 @@ p {
   cursor: pointer;
 }
 
-.container {
-  align-content: center;    
+.btn2 {
+  background-color: #6883ba;
+  color: aliceblue;
+  font-size: 15px;
+  display: flex; 
+  cursor: pointer;
 }
 
-.answerBtns {
-  align-content: center;   
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+.container {
+  text-align: center;   
 }
