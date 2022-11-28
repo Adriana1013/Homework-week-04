@@ -1,6 +1,10 @@
 # Homework-week-04
 Web APIs Challenge: Code Quiz
 
+## Example
+![A screenshot of my assignment](./assets/Game%20Page.png)
+![A screenshot of my assignment](./assets/Questions.png)
+
 User Story: 
 AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
