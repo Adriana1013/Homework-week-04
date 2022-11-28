@@ -42,14 +42,6 @@ h3 {
   cursor: pointer;
 }
 
-.btn2 {
-  background-color: #6883ba;
-  color: aliceblue;
-  font-size: 15px;
-  display: flex; 
-  cursor: pointer;
-}
-
 .hide {
   display: none;
 }
@@ -64,6 +56,10 @@ h3 {
   padding: 1rem;
   display: grid;
   justify-content: center;
+}
+
+#answerContainer {
+  text-align: center;
 }
 
 .selections {

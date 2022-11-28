@@ -1,9 +1,15 @@
 var startBtn = document.getElementById("start");
+var nextBtn = document.getElementById("next-question");
 var askQuestions = document.getElementById("questionTextBox");
 var introPage = document.getElementById("intro")
 
+var hideOptionA =document.getElementById("answerButton1")
+var hideOptionB =document.getElementById("answerButton2")
+var hideOptionC =document.getElementById("answerButton3")
+var hideOptionD =document.getElementById("answerButton4")
+
 var questionSection = document.getElementById('question');
-var answerSection = document.getElementById('answers');
+var answerSection = document.getElementById('answerContainer');
 
 let allQuestions, currentQuestionAsked
 
@@ -16,6 +22,10 @@ console.log('started')
 startBtn.remove("hide")
 askQuestions.classList.remove("hide")
 introPage.remove("hide")
+hideOptionA.remove("hide")
+hideOptionB.remove("hide")
+hideOptionC.remove("hide")
+hideOptionD.remove("hide")
 allQuestions = quizQuestions.sort(() => Math.random() -.5)
 currentQuestionAsked = 0
 continueQuiz();
@@ -24,33 +34,31 @@ startTheTimer();
 
 // advances you to the next question
 function continueQuiz() {
-  resetOptions();
   startQuiz(allQuestions[currentQuestionAsked])
 }
 
 // // questions
 function startQuiz(quizQuestions) {
   questionSection.innerText = quizQuestions.question
-  quizQuestions.choices.forEach(answer=> {
+  quizQuestions.choices.forEach(choice=> {
     const button = document.createElement('button')
-    button.innerText = answer.text
+    button.innerText = choice.text
     button.classList.add("selections")
-    if (answer.correct) {
-        button.dataset.correct = answer.correct
+    if (choice.correct) {
+        button.dataset.correct = choice.correct
     }
     button.addEventListener('click', checkSelection)
     answerSection.appendChild(button)
   })
 }
 
-function resetOptions() {
-  nextButton.classList.add('hide')
-  while(answerSection.firstChild) {
-    answerSection.remove(answerSection.firstChild)
-  }
+function checkSelection() {
+if (choices === true) {
+  text = "correct!"
+} else if (choices === false){
+  text = "false!"
 }
-function checkSelection(e) {
-
+startQuiz()
 }
 
 // Array of questions that will be asked and displayed
