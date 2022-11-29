@@ -32,26 +32,24 @@ continueQuiz();
 startTheTimer();
 }
 
-// advances you to the next question
+// mixes up the questions each time you start the quiz game
 function continueQuiz() {
   startQuiz(allQuestions[currentQuestionAsked])
 }
 
-// // questions
+// // questions and answer options
 function startQuiz(quizQuestions) {
   questionSection.innerText = quizQuestions.question
   quizQuestions.choices.forEach(choice=> {
     const button = document.createElement('button')
     button.innerText = choice.text
     button.classList.add("selections")
-    if (choice.correct) {
-        button.dataset.correct = choice.correct
-    }
     button.addEventListener('click', checkSelection)
     answerSection.appendChild(button)
   })
 }
 
+// trying to verify the button clicked with the actual answer
 function checkSelection() {
 if (choices === true) {
   text = "correct!"
@@ -128,5 +126,5 @@ function sendMessage() {
   countDown.textContent = "Time is Up";
 }
 
-// when I click the button the quiz will appear
+// when I click the start button the quiz will appear
 startBtn.addEventListener("click", playQuiz);
