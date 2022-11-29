@@ -10,10 +10,11 @@ var hideOptionD =document.getElementById("answerButton4")
 
 var questionSection = document.getElementById('question');
 var answerSection = document.getElementById('answerContainer');
+var endSection = document.getElementById('quizOver')
 
 let allQuestions, currentQuestionAsked
 
-var secondsRemaining = 45; 
+var secondsRemaining = 10; 
 var countDown = document.getElementById("timer");
 
 // begins the quiz game
@@ -108,7 +109,11 @@ const quizQuestions = [
     }
   ]
 
-
+function youAreDone () {
+  questionSection.remove("hide")
+  answerSection.remove("hide")
+  endSection.classList.remove("hide")
+}
 // The timer is set and will stop when time is up or all questions are answered
 function startTheTimer() {
   var timerInterval = setInterval(function() {
@@ -124,6 +129,7 @@ function startTheTimer() {
 
 function sendMessage() {
   countDown.textContent = "Time is Up";
+  youAreDone()
 }
 
 // when I click the start button the quiz will appear
