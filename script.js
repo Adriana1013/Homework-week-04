@@ -3,63 +3,88 @@ var nextBtn = document.getElementById("next-question");
 var askQuestions = document.getElementById("questionTextBox");
 var introPage = document.getElementById("intro")
 
-var hideOptionA =document.getElementById("answerButton1")
-var hideOptionB =document.getElementById("answerButton2")
-var hideOptionC =document.getElementById("answerButton3")
-var hideOptionD =document.getElementById("answerButton4")
-
+var submitBtn = document.getElementById('initials')
 var questionSection = document.getElementById('question');
-var answerSection = document.getElementById('answerContainer');
+var answerSection = document.getElementById('answers');
 var endSection = document.getElementById('quizOver')
+var postedScores = document.getElementById('highScore')
 
+// questions and current index
 let allQuestions, currentQuestionAsked
 
-var secondsRemaining = 10; 
+var secondsRemaining = 30; 
 var countDown = document.getElementById("timer");
 
-// begins the quiz game
+// removes the start button, hides the next button for now, hides the intro page copy, randomizes the questions, the timer starts and the question is shown.
 function playQuiz() {
-console.log('started')
 startBtn.remove("hide")
+nextBtn.classList.remove("hide")
 askQuestions.classList.remove("hide")
 introPage.remove("hide")
-hideOptionA.remove("hide")
-hideOptionB.remove("hide")
-hideOptionC.remove("hide")
-hideOptionD.remove("hide")
 allQuestions = quizQuestions.sort(() => Math.random() -.5)
 currentQuestionAsked = 0
 continueQuiz();
 startTheTimer();
 }
 
-// mixes up the questions each time you start the quiz game
+// staging questions
 function continueQuiz() {
+  newSetUp()
   startQuiz(allQuestions[currentQuestionAsked])
 }
 
-// // questions and answer options
-function startQuiz(quizQuestions) {
-  questionSection.innerText = quizQuestions.question
-  quizQuestions.choices.forEach(choice=> {
-    const button = document.createElement('button')
-    button.innerText = choice.text
-    button.classList.add("selections")
-    button.addEventListener('click', checkSelection)
-    answerSection.appendChild(button)
+ // questions
+function startQuiz(gameQuestion) {
+  questionSection.innerText = gameQuestion.question
+  gameQuestion.choices.forEach(answer => {
+  const button = document.createElement('button')
+  button.innerText = answer.text
+  button.classList.add("selections")
+    if (answer.correct) {
+      button.dataset.correct = answer.correct    
+    }
+  button.addEventListener('click', checkSelection)
+  answerSection.appendChild(button)
   })
 }
 
-// trying to verify the button clicked with the actual answer
-function checkSelection() {
-if (choices === true) {
-  text = "correct!"
-} else if (choices === false){
-  text = "false!"
-}
-startQuiz()
+// this function resets the next question and choices to only show the options for that specific question.
+function newSetUp() {
+  nextBtn.classList.add('hide')  
+  while (answerSection.firstChild) {
+    answerSection.removeChild(answerSection.firstChild)
+  }
 }
 
+ // this event listener tells the next button to display the next question in the quiz when clicked
+ nextBtn.addEventListener('click', () => {
+  currentQuestionAsked++
+  continueQuiz()
+})
+
+// this function goes through all of the questions and once the last question is asked and you select an answer, it will automatically send you to the end page to tell you that you're done and input your initials.
+function checkSelection() {
+  if (allQuestions.length > currentQuestionAsked + 1) {
+  nextBtn.classList.remove("hide")
+} else { 
+ youAreDone() 
+}
+}
+
+// this function clears the quiz from the page and shows you the "all done" message with your score and text box to add your initals.
+function youAreDone () {
+  questionSection.remove("hide")
+  answerSection.remove("hide")
+  endSection.classList.remove("hide")
+}
+
+// when you click submit, it takes you to the high score page
+submitBtn.addEventListener("click", highScoreSection);
+
+function highScoreSection() {
+  postedScores.classList.remove("hide")
+  endSection.remove("hide")
+}
 // Array of questions that will be asked and displayed
 const quizQuestions = [
     {
@@ -109,11 +134,6 @@ const quizQuestions = [
     }
   ]
 
-function youAreDone () {
-  questionSection.remove("hide")
-  answerSection.remove("hide")
-  endSection.classList.remove("hide")
-}
 // The timer is set and will stop when time is up or all questions are answered
 function startTheTimer() {
   var timerInterval = setInterval(function() {
@@ -127,6 +147,7 @@ function startTheTimer() {
   }, 1000);      
 } 
 
+// this function will tell you that the timer is up once time runs out and will automatically take you to the "all done page" even if you haven't finished answering all of the quiz questions.
 function sendMessage() {
   countDown.textContent = "Time is Up";
   youAreDone()

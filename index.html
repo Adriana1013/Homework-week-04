@@ -11,33 +11,40 @@
        <!-- Setting the display timer  -->
     <nav id ="navBar">
       <p id="viewScoresHere">View High Scores</p> 
-      <p id="timer">Time: 10 seconds</p>  
+      <p id="timer">Time: 30 seconds</p>  
     </nav>
     <header id="intro">
       <h1>Coding Quiz Challenge!</h1>
       <h3>Answer the following code-related questions before time runs out. Keep in mind that incorrect answers will penalize your score/time by 10 seconds! Good Luck!</h3>
     </header>
-      <button id="start" class="btn">Start Quiz</button> 
-      <button id="next-question" class="hide">Next Question</button> 
-
       <!-- Placeholder for where all questions/answers will live-->
        <div id="questionTextBox" class="hide">
         <div id="question">Question</div>
         <div id="answerContainer">
         <div id="answers" class="answerBtns">
-          <button id="answerButton1" class="selections">Option A</button>
+          <button id="answerButton1" class="selections show">Option A</button>
           <button id="answerButton2" class="selections">Option B</button>
           <button id="answerButton3" class="selections">Option C</button>
           <button id="answerButton4" class="selections">Option D</button>
         </div>  
-      </div>
-
-       <div id="quizOver" class="hide lastPage">
-       <h2>ALL DONE!</h2>
-       <p>Your Score Is:</p>
-       <input type="text" id="yourName" placeholder="Add Your Initials Here"><button>Submit</button>
+        </div>
        </div>
-
+       <div>
+        <button id="start" class="btn">Start Quiz</button> 
+        <button id="next-question" class="hide next">Next Question</button> 
+       </div>
+       <div id="quizOver" class="hide lastPage">
+        <h2>ALL DONE!</h2>
+        <p>Your Score Is:</p>
+        <input type="text" id="yourName" placeholder="Add Your Initials Here"><button id="initials" class="submitButton">Submit</button>
+        </div>
+        <div id="highScore" class="hide actualLastPage">
+          <h2>High Scores</h2>
+          <input type="text" id="yourScoreHere" value="Good Job!"> 
+          <br>
+          </br>
+          <button id="goBack" class="goBack">Go Back</button> <button class="clearScore">Clear High Scores</button>
+        </div>
         <script src="./script.js"></script>
     </body>
 </html>

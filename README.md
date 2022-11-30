@@ -24,6 +24,8 @@ WHEN the game is over
 THEN I can save my initials and score
 
 ## Resources: 
+I used these videos along with MDN to help figure out next steps
+https://developer.mozilla.org/en-US/docs/Web/API/Node/firstChild#:~:text=The%20read%2Donly%20firstChild%20property,list%20of%20its%20direct%20children. 
 https://www.youtube.com/watch?v=riDzcEQbX6k
 https://www.youtube.com/watch?v=RswgVWKJRLM
 

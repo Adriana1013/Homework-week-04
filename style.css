@@ -42,12 +42,24 @@ h3 {
   cursor: pointer;
 }
 
+.next {
+  background-color: #e072a4;
+  padding: .3rem;
+  margin-top: 3.5rem;
+  margin-left: 60%;
+  color: #F9F9F9;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
 .hide {
   display: none;
 }
 
 #question{
   padding: 1rem;
+  margin-top: 3.5rem;
   text-align: center;
   font-size: 1.4rem;
 }
@@ -58,16 +70,28 @@ h3 {
   justify-content: center;
 }
 
-#answerContainer {
+#answers {
   text-align: center;
 }
 
 .selections {
   padding: .5rem;
   margin: .5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .lastPage {
   text-align: center;
+}
+
+.submitButton {
+  cursor: pointer;
+}
+
+.actualLastPage {
+  text-align: center;
+}
+
+#yourScoreHere {
+  color: plum;
 }
